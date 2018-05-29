@@ -1,0 +1,53 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<br>
+
+
+
+
+User.IsInRole("Admin"): @if (Model.IsAdmin)
+{
+    <span>True</span>
+}
+else
+{
+    <span>False</span>
+}
+
+<br>
+<br>
+
+<p>User's roles using GetRolesAsync:</p>
+<ul>
+@if (Model.Roles != null)
+{
+    @foreach(string role in Model.Roles)
+    {
+        <li>@role</li>
+    }
+}
+else
+{
+    <li>None</li>
+}
+</ul>
+
+
+<br>
+<br>
+
+<h2>Admin user account details</h2>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Value</td>
+    </tr>
+    <tr>
+        <td><code>admin@@b.c</code></td>
+        <td><code>P@@ssw0rd</code></td>
+    </tr>
+</table>
